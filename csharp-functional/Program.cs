@@ -22,14 +22,14 @@ namespace csharp_functional
 
                 Console.WriteLine(int.TryParse(Console.ReadLine(), out userIntInput1)
                     ? "One down..."
-                    : "Get some glasses! It said INTEGER you dummy!");
+                    : "Integers only.");
 
                 Console.Write("Enter another integer: ");
 
 
                 Console.WriteLine(int.TryParse(Console.ReadLine(), out userIntInput2)
                     ? "Ok, now let's make a tuple"
-                    : "Get some glasses! It said INTEGER you dummy!");
+                    : "OK, seriously? I asked for an integer.");
 
                 var itsATuple = tuple(userIntInput1, userIntInput2);
                 var mapItsATuple = map(itsATuple,
