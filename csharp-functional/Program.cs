@@ -49,10 +49,13 @@ namespace csharp_functional
                 }
 
                 Console.Write("Another tupling. Enter your name [ <first> space <last> ]: ");
-                var _name = Console.ReadLine();
-                var _splitName = _name.Split(Convert.ToChar(" "));
-                var _nameTuple = tuple(_splitName[0], _splitName[1]);
-                var printableName = map(_nameTuple, (first, last) => "Hello, " + first + " " + last);
+
+                var splitName = Console.ReadLine()?.Split(Convert.ToChar(" "));
+                var nameTuple = tuple(splitName?[0], splitName?[1]);
+
+                Console.WriteLine("Now we use map to print out what you entered: ");
+
+                var printableName = map(nameTuple, (first, last) => "Hello, " + first + " " + last);
                 Console.WriteLine(printableName);
 
 
