@@ -19,16 +19,13 @@ namespace csharp_functional
         static void Main(string[] args)
         {
             Console.WriteLine("C# can be pretend to be functional now! Press ESC to quit");
+            int userIntInput1;
+            int userIntInput2;
+
             do
             {
                 Console.Write("Enter an integer: ");
-                
-                UserIntInput1 = RawInput1.Match(
-                    Some: v => v * 2,
-                    None: () => 0
-                    );
 
-                var userIntInput1 = UserIntInput1;
                 if (int.TryParse(Console.ReadLine(), out userIntInput1))
                 {
                     Console.WriteLine("One down...");
@@ -37,6 +34,26 @@ namespace csharp_functional
                 {
                     Console.WriteLine("Get some glasses! It said INTEGER you dummy!");
                 } 
+
+                Console.Write("Enter another integer: ");
+
+                if (int.TryParse(Console.ReadLine(), out userIntInput2))
+                {
+                    Console.WriteLine("Ok, now let's make a tuple");
+                    var ItsATuple = tuple(userIntInput1, userIntInput2);
+                    Console.WriteLine("Here's your tuple: (" + ItsATuple.Item1 + ", " + ItsATuple.Item2 + ")");
+                }
+                else
+                {
+                    Console.WriteLine("Get some glasses! It said INTEGER you dummy!");
+                }
+
+                Console.Write("Another tupling. Enter your name [ <first> space <last> ]: ");
+                var _name = Console.ReadLine();
+                var _splitName = _name.Split(Convert.ToChar(" "));
+                var _nameTuple = tuple(_splitName[0], _splitName[1]);
+                var printableName = map(_nameTuple, (first, last) => "Hello, " + first + " " + last);
+                Console.WriteLine(printableName);
 
 
             } while (Console.ReadKey(true).Key != ConsoleKey.Escape);
