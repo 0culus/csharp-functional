@@ -13,13 +13,12 @@ namespace csharp_functional
         static void Main(string[] args)
         {
             Console.WriteLine("C# can be pretend to be functional now! Press ESC to quit");
-            int userIntInput1;
-            int userIntInput2;
 
             do
             {
                 Console.Write("Enter an integer: ");
 
+                int userIntInput1;
                 Console.WriteLine(int.TryParse(Console.ReadLine(), out userIntInput1)
                     ? "One down..."
                     : "Integers only.");
@@ -27,10 +26,16 @@ namespace csharp_functional
                 Console.Write("Enter another integer: ");
 
 
+                int userIntInput2;
                 Console.WriteLine(int.TryParse(Console.ReadLine(), out userIntInput2)
                     ? "Ok, now let's make a tuple"
                     : "OK, seriously? I asked for an integer.");
 
+                // TODO: OK, so on the language-ext readme, they give this example:
+                // var name = tuple("Paul","Louth");
+                // var res = name.Map((first, last) => "Hello \{first} \{last}");
+                //
+                // however, there is an error about unknown escapes for \{? 
                 var itsATuple = tuple(userIntInput1, userIntInput2);
                 var mapItsATuple = map(itsATuple,
                     (first, second) => "Here's your tuple: (" + first + ", " + second + ")");
@@ -43,8 +48,8 @@ namespace csharp_functional
 
                 Console.WriteLine("Now we use map to print out what you entered: ");
 
-                var printableName = map(nameTuple, (first, last) => "Hello, " + first + " " + last);
-                Console.WriteLine(printableName);
+                var mapName = map(nameTuple, (first, last) => "Hello, " + first + " " + last);
+                Console.WriteLine(mapName);
 
 
             } while (Console.ReadKey(true).Key != ConsoleKey.Escape);
