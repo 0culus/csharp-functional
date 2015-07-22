@@ -26,18 +26,15 @@ namespace csharp_functional
 
                 Console.Write("Enter another integer: ");
 
-                if (int.TryParse(Console.ReadLine(), out userIntInput2))
-                {
-                    Console.WriteLine("Ok, now let's make a tuple");
-                    var itsATuple = tuple(userIntInput1, userIntInput2);
-                    var mapItsATuple = map(itsATuple,
-                        (first, second) => "Here's your tuple: (" + first + ", " + second + ")");
-                    Console.WriteLine(mapItsATuple);
-                }
-                else
-                {
-                    Console.WriteLine("Get some glasses! It said INTEGER you dummy!");
-                }
+
+                Console.WriteLine(int.TryParse(Console.ReadLine(), out userIntInput2)
+                    ? "Ok, now let's make a tuple"
+                    : "Get some glasses! It said INTEGER you dummy!");
+
+                var itsATuple = tuple(userIntInput1, userIntInput2);
+                var mapItsATuple = map(itsATuple,
+                    (first, second) => "Here's your tuple: (" + first + ", " + second + ")");
+                Console.WriteLine(mapItsATuple);
 
                 Console.Write("Another tupling. Enter your name [ <first> space <last> ]: ");
 
