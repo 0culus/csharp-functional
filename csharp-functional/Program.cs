@@ -4,6 +4,10 @@ using static LanguageExt.Prelude;
 
 namespace csharp_functional
 {
+    /// <summary>
+    /// A simple and hacky console application for playing with new C# 6 features as well as 
+    /// language-ext. See https://github.com/louthy/language-ext
+    /// </summary>
     class Program
     {
         public static Option<int> RawInput1 { get; set; } = Some(123);
