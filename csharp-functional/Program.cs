@@ -1,6 +1,7 @@
 ﻿using System;
 using LanguageExt;
 using static LanguageExt.Prelude;
+// ReSharper disable RedundantAssignment
 
 namespace csharp_functional
 {
@@ -18,7 +19,11 @@ namespace csharp_functional
             {
                 Console.Write("Enter an integer: ");
 
-                int userIntInput1;
+                var optional = Some(1337); // because we're l33t functional programmers
+                var userIntInput1 = optional.Match(
+                    Some: v => v,
+                    None: () => 0);
+
                 Console.WriteLine(int.TryParse(Console.ReadLine(), out userIntInput1)
                     ? "One down..."
                     : "Integers only.");
@@ -26,7 +31,9 @@ namespace csharp_functional
                 Console.Write("Enter another integer: ");
 
 
-                int userIntInput2;
+                var userIntInput2 = optional.Match(
+                    Some: v => v,
+                    None: () => 0);
                 Console.WriteLine(int.TryParse(Console.ReadLine(), out userIntInput2)
                     ? "Ok, now let's make a tuple"
                     : "OK, seriously? I asked for an integer.");
