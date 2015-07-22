@@ -20,22 +20,19 @@ namespace csharp_functional
             {
                 Console.Write("Enter an integer: ");
 
-                if (int.TryParse(Console.ReadLine(), out userIntInput1))
-                {
-                    Console.WriteLine("One down...");
-                }
-                else
-                {
-                    Console.WriteLine("Get some glasses! It said INTEGER you dummy!");
-                } 
+                Console.WriteLine(int.TryParse(Console.ReadLine(), out userIntInput1)
+                    ? "One down..."
+                    : "Get some glasses! It said INTEGER you dummy!");
 
                 Console.Write("Enter another integer: ");
 
                 if (int.TryParse(Console.ReadLine(), out userIntInput2))
                 {
                     Console.WriteLine("Ok, now let's make a tuple");
-                    var ItsATuple = tuple(userIntInput1, userIntInput2);
-                    Console.WriteLine("Here's your tuple: (" + ItsATuple.Item1 + ", " + ItsATuple.Item2 + ")");
+                    var itsATuple = tuple(userIntInput1, userIntInput2);
+                    var mapItsATuple = map(itsATuple,
+                        (first, second) => "Here's your tuple: (" + first + ", " + second + ")");
+                    Console.WriteLine(mapItsATuple);
                 }
                 else
                 {
