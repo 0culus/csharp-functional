@@ -2,6 +2,7 @@
 using LanguageExt;
 using static LanguageExt.Prelude;
 // ReSharper disable RedundantAssignment
+// ReSharper disable RedundantArgumentName
 
 namespace csharp_functional
 {
