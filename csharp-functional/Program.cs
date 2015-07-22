@@ -10,12 +10,6 @@ namespace csharp_functional
     /// </summary>
     class Program
     {
-        public static Option<int> RawInput1 { get; set; } = Some(123);
-        public static Option<int> RawInput2 { get; set; } = Some(123);
-        public static int UserIntInput1 { get; set; }
-        public static int UserIntInput2 { get; set; }
-
-
         static void Main(string[] args)
         {
             Console.WriteLine("C# can be pretend to be functional now! Press ESC to quit");
